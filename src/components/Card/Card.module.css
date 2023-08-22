@@ -20,12 +20,13 @@
     display: flex;
     align-items: center;
     padding: 6px;
+    .chip{
+        background-color: var(--color-black); 
+        color: var(--color-white);
+    }
 }
 .titlewrapper{
     margin: 6px;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-.chip{
-    background-color: var(--color-black); 
 }

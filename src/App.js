@@ -2,15 +2,17 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import { fetchTopAlbums } from "./api/api";
 import { useEffect , useState } from "react";
-import Card from "./components/Card/Card";
-import { data } from "./mockData/topAlbum"
+import Section from "./components/Section/Section";
+import styles from './App.module.css'
 
 function App() {
-  const [topAlbum , setTopAlbum] = useState(data);
+  const [topAlbum , setTopAlbum] = useState([]);
   const topAlbumData = async()=>{
     try{
       const data = await fetchTopAlbums();
+      console.log(data)
       setTopAlbum(data);
+      return data;
     }catch(err){
       console.error(err)
     }
@@ -23,7 +25,9 @@ function App() {
   <>
     <Navbar />
     <Hero />
-    <Card data = {topAlbum[0]} type="album"/>
+    <div className={styles.sectionWrapper}>
+    <Section type="album" title ="Top Albums" data ={topAlbum}/>
+    </div>
   </>
   );
 }
