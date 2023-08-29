@@ -1,24 +1,36 @@
-.search{
+/* Search.module.css */
+.search {
     padding: 14px 20px;
-    border-radius: 8px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-radius: 0 8px 8px 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     border: 1px solid var(--color-black);
-    width: 502px;
-    height: 100%;
+    width: 502px !important;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensure padding doesn't affect the width */
+    
 }
 
-.wrapper{
+.wrapper {
+    border-radius: 0 8px 8px 0;
+    background-color: var(--color-white);
     display: flex;
     align-items: center;
-    height: 48px;
+    height: 48px !important;
 }
 
-.searchButton{
-    border-radius: 0px 8px 8px 0px;
+.searchButton {
+    border-radius: 0 8px 8px 0;
     padding: 14px 20px;
     border: 1px solid var(--color-black);
     border-left: none;
     cursor: pointer;
+    height: 48px;
+    background-color: var(--color-white);
+    box-sizing: border-box; /* Ensure padding doesn't affect the width */
+}
+
+/* If you want to align the search button with the input field's height */
+.searchButton button {
     height: 100%;
 }

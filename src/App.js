@@ -10,6 +10,7 @@ function App() {
   const [topAlbum , setTopAlbum] = useState([]);
   const [newAlbumData , setNewAlbumData] = useState([]);
   const [songsData, setSongsData] = useState([]);
+  const [allAlbumData, setAllAlbumData] = useState([]);
   const topAlbumData = async()=>{
     try{
       const data = await fetchTopAlbums();
@@ -49,9 +50,15 @@ function App() {
     generateSongs();
   },[])
 
+  useEffect(() => {
+    const combinedAlbums=[...topAlbum, ...newAlbumData];
+    setAllAlbumData(combinedAlbums)
+  }, [topAlbum, newAlbumData]);
+
+  
   return (
   <>
-    <Navbar />
+    <Navbar albums={allAlbumData} />
     <Hero />
     <div className={styles.sectionWrapper}>
     <Section type="album" title ="Top Albums" data ={topAlbum}/>
